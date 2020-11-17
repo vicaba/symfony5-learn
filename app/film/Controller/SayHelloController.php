@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace LaSalle\App\Film\Controller;
 
 
 use Symfony\Component\HttpFoundation\Response;
@@ -10,11 +10,11 @@ use Twig\Environment;
 class SayHelloController
 {
 
-    private Environment $twig;
+    //private Environment $twig;
 
-    public function __construct(Environment $twig)
+    public function __construct(private Environment $twig)
     {
-        $this->twig = $twig;
+        //$this->twig = $twig;
     }
 
     public function index(): Response

@@ -1,3 +1,8 @@
 index:
     path: /
-    controller: App\Controller\SayHelloController::index
+    controller: LaSalle\App\Film\Controller\SayHelloController::index
+
+getFilmById:
+    path: /film/{filmId}
+    controller: LaSalle\App\Film\Controller\GetFilmByIdController::apply
+    methods: GET
