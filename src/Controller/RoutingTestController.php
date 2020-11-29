@@ -14,8 +14,8 @@ class RoutingTestController
     public function __construct(private Environment $twig)
     {}
 
-    #[Route("/{parameter}/", name: "constraint", requirements: ["parameter" => "\d+"])]
-    public function parameterConstraint(string $parameter, Request $request)
+    //#[Route("/{parameter}/", name: "constraint", requirements: ["parameter" => "\d+"])]
+    public function parameterConstraint(string $parameter): Response
     {
         $html = $this->twig->render("routing_test.html.twig", [
             "variable" => "constraint route, param value: $parameter"
@@ -27,8 +27,8 @@ class RoutingTestController
         return $response;
     }
 
-    #[Route("/{parameter}/", name: "parameter")]
-    public function parameter(string $parameter, Request $request)
+    //#[Route("/{parameter}/", name: "parameter")]
+    public function parameter(string $parameter): Response
     {
         $html = $this->twig->render("routing_test.html.twig", [
             "variable" => "parameter route (no-constraint), param value: $parameter"
