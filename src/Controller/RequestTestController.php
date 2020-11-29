@@ -21,7 +21,7 @@ class RequestTestController
 
     public function postRequest(Request $request): Response
     {
-        return new Response(self::ID_KEY);
+        return new Response($request->request->get(self::ID_KEY));
     }
 
 }

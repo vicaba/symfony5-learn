@@ -2,10 +2,11 @@ index:
     path: /
     controller: App\Controller\SayHelloController::index
 
-getRequest:
-    path: /request
-    controller: App\Controller\RequestTestController::getRequest
-
 postRequest:
     path: /request
     controller: App\Controller\RequestTestController::postRequest
+    methods: [POST]
+
+getRequest:
+    path: /request
+    controller: App\Controller\RequestTestController::getRequest
