@@ -19,9 +19,11 @@ class RequestTestController
         return new Response($request->query->get(self::ID_KEY));
     }
 
-    public function postRequest(Request $request): Response
-    {
-        return new Response($request->request->get(self::ID_KEY));
-    }
+public function postRequest(Request $request): Response
+{
+    $requestData = json_decode($request->getContent(), true)[self::ID_KEY];
+
+    return new Response((string) $requestData);
+}
 
 }
