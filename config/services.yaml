@@ -30,4 +30,6 @@ services:
 
     LaSalle\App\Film\Controller\SayHelloController:
         class: \LaSalle\App\Film\Controller\SayHelloController
+        arguments:
+            - '@twig'
         tags: ['controller.service_arguments']
