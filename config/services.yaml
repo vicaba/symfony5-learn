@@ -33,3 +33,22 @@ services:
         arguments:
             - '@twig'
         tags: ['controller.service_arguments']
+
+    LaSalle\App\Film\Controller\GetFilmByIdController:
+        class: \LaSalle\App\Film\Controller\GetFilmByIdController
+        arguments:
+            - '@twig'
+            - '@LaSalle\Film\Application\GetFilmByIdUseCase'
+            - '@LaSalle\Film\Infrastructure\Serialization\FilmArraySerializer'
+        tags: ['controller.service_arguments']
+
+    LaSalle\Film\Application\GetFilmByIdUseCase:
+        class: \LaSalle\Film\Application\GetFilmByIdUseCase
+        arguments:
+            - '@LaSalle\Film\Domain\Repository\FilmRepository'
+
+    LaSalle\Film\Domain\Repository\FilmRepository:
+        class: \LaSalle\Film\Infrastructure\Repository\InMemoryFilmRepository
+
+    LaSalle\Film\Infrastructure\Serialization\FilmArraySerializer:
+        class: \LaSalle\Film\Infrastructure\Serialization\FilmArraySerializer
