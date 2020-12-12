@@ -7,7 +7,6 @@ use LaSalle\Film\Domain\Entity\Film;
 
 class FilmArraySerializer
 {
-
     public const FILM_ID = "id";
     public const FILM_NAME = "name";
     public const FILM_DIRECTOR = "director";
