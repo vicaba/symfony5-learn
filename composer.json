@@ -11,7 +11,7 @@
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^2.2",
         "doctrine/doctrine-migrations-bundle": "^3.0",
-        "doctrine/orm": "^2.7",
+        "doctrine/orm": "^2.8",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "5.2.*",
@@ -34,7 +34,7 @@
         "symfony/serializer": "5.2.*",
         "symfony/string": "5.2.*",
         "symfony/translation": "5.2.*",
-        "symfony/twig-bundle": "^5.2@RC",
+        "symfony/twig-bundle": "^5.2",
         "symfony/validator": "5.2.*",
         "symfony/web-link": "5.2.*",
         "symfony/yaml": "5.2.*",
@@ -42,14 +42,14 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
-        "symfony/browser-kit": "^5.2@RC",
-        "symfony/css-selector": "^5.2@RC",
-        "symfony/debug-bundle": "^5.2@RC",
+        "symfony/browser-kit": "^5.2",
+        "symfony/css-selector": "^5.2",
+        "symfony/debug-bundle": "^5.2",
         "symfony/maker-bundle": "^1.0",
-        "symfony/phpunit-bridge": "^5.1",
-        "symfony/stopwatch": "^5.2@RC",
-        "symfony/var-dumper": "^5.2@RC",
-        "symfony/web-profiler-bundle": "^5.2@RC"
+        "symfony/phpunit-bridge": "^5.2",
+        "symfony/stopwatch": "^5.2",
+        "symfony/var-dumper": "^5.2",
+        "symfony/web-profiler-bundle": "^5.2"
     },
     "config": {
         "optimize-autoloader": true,
