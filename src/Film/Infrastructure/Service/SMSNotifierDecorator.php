@@ -8,7 +8,6 @@ use LaSalle\Film\Domain\Service\NotifierBaseDecorator;
 
 class SMSNotifierDecorator extends NotifierBaseDecorator
 {
-
     public function __construct(Notifier $wrapee)
     {
         parent::__construct($wrapee);
