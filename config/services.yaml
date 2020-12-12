@@ -30,3 +30,8 @@ services:
 
     LaSalle\Film\Domain\Service\Notifier:
         class: \LaSalle\Film\Infrastructure\Service\EmailNotifier
+
+    LaSalle\Film\Infrastructure\Service\SMSNotifierDecorator:
+        class: \LaSalle\Film\Infrastructure\Service\SMSNotifierDecorator
+        decorates: LaSalle\Film\Domain\Service\Notifier
+        arguments: ['@.inner']
