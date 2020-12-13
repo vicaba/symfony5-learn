@@ -18,7 +18,7 @@ class GetFilmByIdUseCase
     {
         $filmId = new FilmId($request->filmId());
 
-        $this->filmNotifier->notify("Someone is searching for a film");
+        //$this->filmNotifier->notify("Someone is searching for a film");
 
         return $this->filmRepository->searchFilmById($filmId);
     }
