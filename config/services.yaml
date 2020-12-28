@@ -28,6 +28,10 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    LaSalle\App\Film\Command\GetFilmByIdCommand:
+        class: \LaSalle\App\Film\Command\GetFilmByIdCommand
+        tags: [ 'console.command' ]
+
     LaSalle\Film\Domain\Service\Notifier:
         class: \LaSalle\Film\Infrastructure\Service\EmailNotifier
 
