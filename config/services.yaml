@@ -30,7 +30,7 @@ services:
 
     LaSalle\App\Film\Command\GetFilmByIdCommand:
         class: \LaSalle\App\Film\Command\GetFilmByIdCommand
-        tags: [ 'console.command' ]
+        tags: ['console.command']
 
     LaSalle\Film\Domain\Service\Notifier:
         class: \LaSalle\Film\Infrastructure\Service\EmailNotifier
@@ -39,3 +39,8 @@ services:
         class: \LaSalle\Film\Infrastructure\Service\SMSNotifierDecorator
         decorates: LaSalle\Film\Domain\Service\Notifier
         arguments: ['@.inner']
+
+    LaSalle\App\Film\RequestListener\RequestListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+        arguments: [ '%kernel.project_dir%' ]

@@ -8,5 +8,7 @@ use LaSalle\Film\Domain\ValueObject\FilmId;
 
 interface FilmRepository
 {
+    public function saveFilm(Film $film): bool;
+
     public function searchFilmById(FilmId $filmId): Film;
 }
