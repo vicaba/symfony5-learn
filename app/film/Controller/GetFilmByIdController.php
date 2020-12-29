@@ -20,7 +20,7 @@ class GetFilmByIdController
     )
     {}
 
-    public function apply(string $filmId): Response
+    public function apply(): Response
     {
         $film = $this->getFilmByIdUseCase->__invoke(new GetFilmByIdRequest($filmId));
 
