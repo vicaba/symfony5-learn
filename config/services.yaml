@@ -35,7 +35,7 @@ services:
 
     LaSalle\Film\Domain\Repository\FilmRepository:
         class: \LaSalle\Film\Infrastructure\Repository\FilesystemFilmRepository
-        arguments: [ '%film.database.file%' ]
+        arguments: [ '%film.database.dir%', '%film.database.file%' ]
 
     LaSalle\App\Film\Command\GetFilmByIdCommand:
         class: \LaSalle\App\Film\Command\GetFilmByIdCommand
@@ -53,3 +53,7 @@ services:
         tags:
             - { name: kernel.event_listener, event: kernel.request }
         arguments: [ '%film.database.dir%', '%film.database.file%' ]
+
+    LaSalle\Film\Application\Listener\FilmSearchedListener:
+        tags:
+            - { name: kernel.event_listener, event: film.searched, method: onFilmSearched}

@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\File;
 class FilesystemFilmRepository implements FilmRepository
 {
     public function __construct(
+        private string $databaseDirectoryPath,
         private string $databaseFilePath,
         private Filesystem $filesystem
     ) {}
@@ -43,7 +44,21 @@ class FilesystemFilmRepository implements FilmRepository
 
     public function updateSearchCount(): void
     {
-        // Your code here
+        $searchedFilmsCountFilePath = "$this->databaseDirectoryPath/count.txt";
+
+        if (!$this->filesystem->exists($searchedFilmsCountFilePath)) {
+            $this->filesystem->touch($searchedFilmsCountFilePath);
+            $this->filesystem->appendToFile(serialize(0));
+        }
+
+        $searchedFilmsCountFile = new File($searchedFilmsCountFilePath);
+
+        $searchedFilmsCount = (int) unserialize($searchedFilmsCountFile->getContent());
+
+        $this->filesystem->remove($searchedFilmsCountFilePath);
+
+        $this->filesystem->touch($this->databaseFilePath);
+        $this->filesystem->appendToFile($searchedFilmsCountFilePath, serialize($searchedFilmsCount + 1));
     }
 
     private function getFilmDatabaseFile(): File
