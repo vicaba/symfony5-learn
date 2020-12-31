@@ -30,7 +30,13 @@ class FilesystemFilmRepository implements FilmRepository
 
     public function searchFilmById(FilmId $filmId): Film
     {
-        var_dump($this->getDatabase());
+        $db = $this->getDatabase();
+
+        $films = array_filter($db, function (Film $film) use ($filmId) {
+            return $filmId->value() == $film->id()->value();
+        });
+
+        return current($films);
     }
 
     public function count(): int
