@@ -48,7 +48,7 @@ class FilesystemFilmRepository implements FilmRepository
 
         if (!$this->filesystem->exists($searchedFilmsCountFilePath)) {
             $this->filesystem->touch($searchedFilmsCountFilePath);
-            $this->filesystem->appendToFile(serialize(0));
+            $this->filesystem->appendToFile($searchedFilmsCountFilePath, serialize(0));
         }
 
         $searchedFilmsCountFile = new File($searchedFilmsCountFilePath);
