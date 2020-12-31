@@ -29,8 +29,6 @@ class FilesystemFilmRepository implements FilmRepository
 
     public function searchFilmById(FilmId $filmId): Film
     {
-        $this->updateSearchCount();
-
         return Film::create(
             $filmId,
             new FilmName("Star Wars"),
@@ -43,7 +41,7 @@ class FilesystemFilmRepository implements FilmRepository
         return count($this->getDatabase());
     }
 
-    private function updateSearchCount(): void
+    public function updateSearchCount(): void
     {
         // Your code here
     }

@@ -30,4 +30,9 @@ class InMemoryFilmRepository implements FilmRepository
     {
         // TODO: Implement count() method.
     }
+
+    public function updateSearchCount(): void
+    {
+        // TODO: Implement updateSearchCount() method.
+    }
 }

@@ -13,4 +13,6 @@ interface FilmRepository
     public function searchFilmById(FilmId $filmId): Film;
 
     public function count(): int;
+
+    public function updateSearchCount(): void;
 }
