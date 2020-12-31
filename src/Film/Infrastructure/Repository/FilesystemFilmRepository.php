@@ -30,11 +30,7 @@ class FilesystemFilmRepository implements FilmRepository
 
     public function searchFilmById(FilmId $filmId): Film
     {
-        return Film::create(
-            $filmId,
-            new FilmName("Star Wars"),
-            new FilmDirector("George Lucas")
-        );
+        var_dump($this->getDatabase());
     }
 
     public function count(): int
@@ -48,7 +44,7 @@ class FilesystemFilmRepository implements FilmRepository
 
         if (!$this->filesystem->exists($searchedFilmsCountFilePath)) {
             $this->filesystem->touch($searchedFilmsCountFilePath);
-            $this->filesystem->appendToFile(serialize(0));
+            $this->filesystem->appendToFile($searchedFilmsCountFilePath, serialize(0));
         }
 
         $searchedFilmsCountFile = new File($searchedFilmsCountFilePath);

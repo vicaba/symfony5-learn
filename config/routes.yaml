@@ -6,3 +6,8 @@ getFilmById:
     path: /film/{filmId}
     controller: LaSalle\App\Film\Controller\GetFilmByIdController::apply
     methods: GET
+
+createFilm:
+    path: /film
+    controller: LaSalle\App\Film\Controller\CreateFilmController::apply
+    methods: POST
