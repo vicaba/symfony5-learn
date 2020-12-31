@@ -25,4 +25,9 @@ class InMemoryFilmRepository implements FilmRepository
             new FilmDirector("George Lucas")
         );
     }
+
+    public function count(): int
+    {
+        // TODO: Implement count() method.
+    }
 }

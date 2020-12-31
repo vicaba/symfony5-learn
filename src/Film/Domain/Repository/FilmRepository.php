@@ -11,4 +11,6 @@ interface FilmRepository
     public function saveFilm(Film $film): bool;
 
     public function searchFilmById(FilmId $filmId): Film;
+
+    public function count(): int;
 }

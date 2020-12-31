@@ -7,15 +7,19 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class RequestListener
 {
-    public function __construct(private string $projectDirectory, private Filesystem $filesystem)
-    {}
+    public function __construct(
+        private string $filmDatabaseDirectoryPath,
+        private string $filmDatabaseFilePath,
+        private Filesystem $filesystem
+    ) {}
 
     public function __invoke()
     {
-        $filmDatabaseDirectory = "$this->projectDirectory/var/film_db/";
+        if (!$this->filesystem->exists($this->filmDatabaseDirectoryPath)) {
+            $this->filesystem->mkdir($this->filmDatabaseDirectoryPath);
 
-        if (!$this->filesystem->exists($filmDatabaseDirectory)) {
-            $this->filesystem->mkdir($filmDatabaseDirectory);
+            $this->filesystem->touch($this->filmDatabaseFilePath);
+            $this->filesystem->appendToFile($this->filmDatabaseFilePath, serialize([]));
         }
     }
 }
