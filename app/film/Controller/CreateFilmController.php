@@ -8,11 +8,12 @@ use LaSalle\Film\Application\Request\CreateFilmRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 class CreateFilmController
 {
     public function __construct(
-        private CreateFilmUseCase $createFilmUseCase,
+        private MessageBusInterface $bus
     )
     {}
 
@@ -24,7 +25,7 @@ class CreateFilmController
         $filmName = $propertyArray["name"];
         $filmDirector = $propertyArray["director"];
 
-        $this->createFilmUseCase->__invoke(new CreateFilmRequest($filmId, $filmName, $filmDirector));
+        $this->bus->dispatch(new CreateFilmRequest($filmId, $filmName, $filmDirector));
 
         $response = new Response();
         $response->setStatusCode(Response::HTTP_ACCEPTED);

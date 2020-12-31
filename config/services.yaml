@@ -57,3 +57,6 @@ services:
     LaSalle\Film\Application\Listener\FilmSearchedListener:
         tags:
             - { name: kernel.event_listener, event: film.searched, method: onFilmSearched}
+
+    LaSalle\Film\Application\CreateFilmUseCase:
+        tags: [ 'messenger.message_handler' ]
