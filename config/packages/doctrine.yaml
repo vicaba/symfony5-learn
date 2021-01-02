@@ -1,6 +1,13 @@
 doctrine:
     dbal:
-        url: '%env(resolve:DATABASE_URL)%'
+        dbname:               '%env(MYSQL_DATABASE)%'
+        host:                 '%env(MYSQL_HOST)%'
+        port:                 '%env(MYSQL_PORT)%'
+        user:                 '%env(MYSQL_USER)%'
+        password:             '%env(MYSQL_PASSWORD)%'
+        driver:               pdo_mysql
+
+        server_version:       '%env(MYSQL_VERSION)%'
 
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
@@ -10,9 +17,9 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            Laalle/Film:
+            LaSalle/Film:
                 is_bundle: false
                 type: annotation
                 dir: '%kernel.project_dir%/src/Film/Domain/Entity'
                 prefix: 'LaSalle\Film\Domain\Entity'
-                alias: App
+                alias: Film
