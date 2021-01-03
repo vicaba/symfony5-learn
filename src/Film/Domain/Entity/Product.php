@@ -18,20 +18,20 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private string $name;
 
     /**
      * @ORM\Column(type="decimal", scale=2)
      */
-    private $price;
+    private float $price;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $description;
+    private string $description;
 }
