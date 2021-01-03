@@ -18,7 +18,7 @@ class Product
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=100)
@@ -36,7 +36,7 @@ class Product
     private string $description;
 
 
-    public function id(): string
+    public function id(): int
     {
         return $this->id;
     }
