@@ -11,3 +11,9 @@ createFilm:
     path: /film
     controller: LaSalle\App\Film\Controller\CreateFilmController::apply
     methods: POST
+
+listProducts:
+    path: /product
+    controller: LaSalle\App\Film\Controller\ListProductsController::apply
+    methods: GET
+

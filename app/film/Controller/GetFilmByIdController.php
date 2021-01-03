@@ -14,8 +14,7 @@ class GetFilmByIdController
     public function __construct(
         private GetFilmByIdUseCase $getFilmByIdUseCase,
         private FilmArraySerializer $filmArraySerializer
-    )
-    {}
+    ) {}
 
     public function apply(string $filmId): Response
     {
