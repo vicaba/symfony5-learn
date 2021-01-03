@@ -19,8 +19,6 @@ class UpdateProductByIdController
 
         $product = $this->em->getRepository("\LaSalle\Film\Domain\Entity\Product")->findOneBy(["id" => $id]);
 
-        var_dump($product);
-
         $product
             ->setName($json["name"])
             ->setPrice($json["price"])
