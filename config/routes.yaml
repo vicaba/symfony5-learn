@@ -17,3 +17,17 @@ listProducts:
     controller: LaSalle\App\Film\Controller\ListProductsController::apply
     methods: GET
 
+createProduct:
+    path: /product
+    controller: LaSalle\App\Film\Controller\CreateProductController::apply
+    methods: POST
+
+deleteProductById:
+    path: /product/{id}
+    controller: LaSalle\App\Film\Controller\DeleteProductByIdController::apply
+    methods: DELETE
+
+updateProductById:
+    path: /product/{id}
+    controller: LaSalle\App\Film\Controller\UpdateProductByIdController::apply
+    methods: PUT

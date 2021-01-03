@@ -61,4 +61,22 @@ class Product
     {
         return $this->description;
     }
+
+    public function setName(string $name): Product
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setPrice(float $price): Product
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    public function setDescription(string $description): Product
+    {
+        $this->description = $description;
+        return $this;
+    }
 }
