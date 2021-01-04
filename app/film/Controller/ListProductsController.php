@@ -31,7 +31,9 @@ class ListProductsController
             "id" => $product->id(),
             "name" => $product->name(),
             "price" => $product->price(),
-            "description" => $product->description()
+            "description" => $product->description(),
+            "owner_id" => $product->owner()->id(),
+            "owner_name" => $product->owner()->name()
         ];
     }
 }

@@ -36,7 +36,7 @@ class Product
     private string $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Owner")
+     * @ORM\ManyToOne(targetEntity="Owner", cascade={"persist", "remove"})
      * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
      */
     private Owner $owner;

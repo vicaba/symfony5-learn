@@ -36,3 +36,8 @@ createOwner:
     path: /owner
     controller: LaSalle\App\Film\Controller\CreateOwnerController::apply
     methods: POST
+
+listOwners:
+    path: /owner
+    controller: LaSalle\App\Film\Controller\ListOwnersController::apply
+    methods: GET
