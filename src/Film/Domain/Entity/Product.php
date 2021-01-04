@@ -35,11 +35,18 @@ class Product
      */
     private string $description;
 
-    public function __construct(string $name, float $price, string $description)
+    /**
+     * @ORM\ManyToOne(targetEntity="Owner", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
+     */
+    private Owner $owner;
+
+    public function __construct(string $name, float $price, string $description, Owner $owner)
     {
         $this->name = $name;
         $this->price = $price;
         $this->description = $description;
+        $this->owner = $owner;
     }
 
     public function id(): int
@@ -62,6 +69,11 @@ class Product
         return $this->description;
     }
 
+    public function owner(): Owner
+    {
+        return $this->owner;
+    }
+
     public function setName(string $name): Product
     {
         $this->name = $name;
@@ -77,6 +89,12 @@ class Product
     public function setDescription(string $description): Product
     {
         $this->description = $description;
+        return $this;
+    }
+
+    public function setOwner(Owner $owner): Product
+    {
+        $this->owner = $owner;
         return $this;
     }
 }
