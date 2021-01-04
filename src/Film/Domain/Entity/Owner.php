@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 // THIS CLASS IS ONLY AN EXAMPLE
 
 /**
+ * @ORM\Entity
  * @ORM\Table(name="owner")
  */
 class Owner

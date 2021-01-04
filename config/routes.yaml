@@ -31,3 +31,8 @@ updateProductById:
     path: /product/{id}
     controller: LaSalle\App\Film\Controller\UpdateProductByIdController::apply
     methods: PUT
+
+createOwner:
+    path: /owner
+    controller: LaSalle\App\Film\Controller\CreateOwnerController::apply
+    methods: POST

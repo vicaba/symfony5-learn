@@ -4,11 +4,12 @@ declare(strict_types=1);
 namespace LaSalle\App\Film\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
+use LaSalle\Film\Domain\Entity\Owner;
 use LaSalle\Film\Domain\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class CreateProductController
+class CreateOwnerController
 {
     public function __construct(
         private EntityManagerInterface $em
@@ -19,15 +20,10 @@ class CreateProductController
         $json = json_decode($request->getContent(), true);
 
         $name = $json["name"];
-        $price = $json["price"];
-        $description = $json["description"];
-        $ownerId = $json["owner_id"];
 
-        $owner = $this->em->getReference("\LaSalle\Film\Domain\Entity\Owner", $ownerId);
+        $owner = new Owner($name);
 
-        $product = new Product($name, $price, $description, $owner);
-
-        $this->em->persist($product);
+        $this->em->persist($owner);
         $this->em->flush();
 
         return new Response("", Response::HTTP_CREATED);

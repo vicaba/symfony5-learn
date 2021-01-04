@@ -36,7 +36,7 @@ class Product
     private string $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Owner", inversedBy="products", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Owner")
      * @ORM\JoinColumn(name="owner_id", referencedColumnName="id")
      */
     private Owner $owner;
