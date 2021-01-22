@@ -16,13 +16,13 @@ class ListOwnersController
 
     public function apply(): Response
     {
-        $products = $this->em->getRepository("\LaSalle\Film\Domain\Entity\Owner")->findAll();
+        $owners = $this->em->getRepository("\LaSalle\Film\Domain\Entity\Owner")->findAll();
 
-        $serializedProducts = array_map(function (Owner $p) {
-            return $this->ownerToArray($p);
-        }, $products);
+        $serializedOwners = array_map(function (Owner $o) {
+            return $this->ownerToArray($o);
+        }, $owners);
 
-        return new JsonResponse($serializedProducts);
+        return new JsonResponse($serializedOwners);
     }
 
     private function ownerToArray(Owner $owner): array
