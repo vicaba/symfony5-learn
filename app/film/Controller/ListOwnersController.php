@@ -5,24 +5,25 @@ namespace LaSalle\App\Film\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
 use LaSalle\Film\Domain\Entity\Owner;
+use LaSalle\Film\Domain\Repository\OwnerRepository;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class ListOwnersController
 {
     public function __construct(
-        private EntityManagerInterface $em
+        private OwnerRepository $ownerRepository
     ) {}
 
     public function apply(): Response
     {
-        $products = $this->em->getRepository("\LaSalle\Film\Domain\Entity\Owner")->findAll();
+        $owners = $this->ownerRepository->findAllOrderedByName();
 
-        $serializedProducts = array_map(function (Owner $p) {
-            return $this->ownerToArray($p);
-        }, $products);
+        $serializedOwners = array_map(function (Owner $o) {
+            return $this->ownerToArray($o);
+        }, $owners);
 
-        return new JsonResponse($serializedProducts);
+        return new JsonResponse($serializedOwners);
     }
 
     private function ownerToArray(Owner $owner): array
