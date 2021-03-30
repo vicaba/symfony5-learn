@@ -41,3 +41,8 @@ listOwners:
     path: /owner
     controller: LaSalle\App\Film\Controller\ListOwnersController::apply
     methods: GET
+
+listProductsGui:
+    path: /gui/product
+    controller: LaSalle\App\Film\Controller\ListProductsGuiController::apply
+    methods: GET
