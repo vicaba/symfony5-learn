@@ -1,0 +1,9 @@
+products:
+  catalogue:
+    welcome: Welcome to the products catalogue
+    subtitle: >-
+      {products, plural,
+          =0    {There are no products}
+          one   {There is one product...}
+          other {There are # products!}
+      }

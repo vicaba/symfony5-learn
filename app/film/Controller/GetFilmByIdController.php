@@ -8,13 +8,15 @@ use LaSalle\Film\Application\Request\GetFilmByIdRequest;
 use LaSalle\Film\Infrastructure\Serialization\FilmArraySerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class GetFilmByIdController
 {
     public function __construct(
         private GetFilmByIdUseCase $getFilmByIdUseCase,
         private FilmArraySerializer $filmArraySerializer
-    ) {}
+    )
+    {}
 
     public function apply(string $filmId): Response
     {

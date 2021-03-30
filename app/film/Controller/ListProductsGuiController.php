@@ -7,13 +7,15 @@ use Doctrine\ORM\EntityManagerInterface;
 use LaSalle\Film\Domain\Entity\Product;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
 
 class ListProductsGuiController
 {
     public function __construct(
         private EntityManagerInterface $em,
-        private Environment $twig
+        private Environment $twig,
+        private TranslatorInterface $translator
     ) {}
 
     public function apply(): Response

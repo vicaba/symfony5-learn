@@ -1,8 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>{% trans %}products.catalogue.welcome{% endtrans %}</h1>
-    <h2>There is one product</h2>
+    <h1>{{ 'products.catalogue.welcome'|trans }}</h1>
+    <h2>{{ 'products.catalogue.subtitle'|trans({'products': products|length}) }}</h2>
 
     <ul>
     {% for product in products %}
