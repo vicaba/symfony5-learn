@@ -43,6 +43,8 @@ listOwners:
     methods: GET
 
 listProductsGui:
-    path: /gui/product
+    path: /{_locale}/gui/product
     controller: LaSalle\App\Film\Controller\ListProductsGuiController::apply
     methods: GET
+    requirements:
+        _locale: en|es
